@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <div>
+        <h2>Face</h2>
+        <form  method="POST" action="{% url 'face_login' %}" id="login-form">
+            {% csrf_token %}
+            {% include "form_errors.html" %}
+            <table>
+              <tr>
+                  <td width="50%">
+                      <img src="http://127.0.0.1:8000/time_table/camera" style="width:200px;"/>
+                  </td>
+              </tr>
+            </table>
+            <div>
+                <input type="submit" name="signin" id="signin"value="Log in"/>
+            </div>
+        </form>
+    </div>
+
+    <div>
+        <h2>ID/PW</h2>
+        <form  method="POST" action="" id="login-form">
+            {% csrf_token %}
+            {% include "form_errors.html" %}
+            <div>
+                <label for="username"></label>
+                <input type="text" class="form-control" name="username" id="username"
+                       value="{{ form.username.value|default_if_none:'' }}" placeholder="username">
+            </div>
+            <div>
+                <label for="password"></label>
+                <input type="password" class="form-control" name="password" id="password"
+                       value="{{ form.password.value|default_if_none:'' }}" placeholder="Password">
+            </div>
+            <div>
+                <input type="submit" name="signin" id="signin" value="Log in"/>
+            </div>
+            <a href="{% url 'register' %}">Create an account</a>
+        </form>
+    </div>
+</body>
+</html>

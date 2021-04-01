@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+
+<body>
+    <div>
+    <!--사용자 사진 등록-->
+      <form method="post" action="{% url 'logout' %}">
+          {% csrf_token %}
+          <button type="submit" id="logout">로그아웃</button>
+      </form>
+      <h3>
+          사용자 사진 등록하기
+      </h3>
+      <div>
+          <form method="post" action="{% url 'time_table:add_face' %}">
+              <table>
+                  <tr>
+                      <td width="50%">
+                          <img src="http://127.0.0.1:8000/time_table/camera" style="width:200px;"/>
+                      </td>
+                  </tr>
+              </table>
+              {% csrf_token %}
+              <button type="submit">등록하기</button>
+          </form>
+      </div>
+    </div>
+</body>
+
+</html>
